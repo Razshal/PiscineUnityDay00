@@ -9,11 +9,6 @@ public class CubeSpawner : MonoBehaviour {
     public float spawnTimer = 1;
     public int cubeNumber = 0;
 
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
