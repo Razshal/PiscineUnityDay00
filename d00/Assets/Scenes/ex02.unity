@@ -422,6 +422,7 @@ MonoBehaviour:
   acceleration: 0
   deceleration: 0.01
   forceIncrese: 0.01
+  maxForce: 1.2
 --- !u!1 &647139827
 GameObject:
   m_ObjectHideFlags: 0

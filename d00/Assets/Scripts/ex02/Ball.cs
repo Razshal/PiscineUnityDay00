@@ -65,11 +65,12 @@ public class Ball : MonoBehaviour {
             }
             else
             {
-                // Defining ball movement
+                // Defining ball direction
                 if (gameObject.transform.position.y >= 4.6f)
                     touchedWall = true;
                 if (gameObject.transform.position.y <= -4.6f)
                     touchedWall = false;
+                // Ball movement respecting direction
                 if (touchedWall || startingPoint.y > hole.gameObject.transform.position.y)
                     gameObject.transform.Translate(0, -acceleration, 0);
                 else
