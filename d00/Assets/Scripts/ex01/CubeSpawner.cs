@@ -23,7 +23,7 @@ public class CubeSpawner : MonoBehaviour {
         {
             cubeNumber = Random.Range(0, cubes.Length);
             Instantiate(cubes[cubeNumber], 
-                        lines[cubeNumber].transform.position, 
+                        new Vector2(lines[cubeNumber].transform.position.x, 4), 
                         lines[cubeNumber].transform.rotation);
             timer = 0;
         }
