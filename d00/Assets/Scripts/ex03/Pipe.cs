@@ -2,48 +2,50 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pipe : MonoBehaviour {
-	public GameObject bird;
-	public GameObject[] pipes;
+public class Pipe : MonoBehaviour
+{
+    public GameObject bird;
+    public GameObject[] pipes;
+    public bool[] birdPassed;
 	private float time;
     public float speed = 0.1f;
     public int score = 0;
-    private bool gameOn = true;
-
-    // Use this for initialization
-    void Start () {
-        
-    }
+    public bool gameOn = true;
 
     void GameOver() {
         gameOn = false;
-
+        Debug.Log("Score: " + score + "\nTime: " + Mathf.RoundToInt(time) + "s");
     }
-    
-    // Update is called once per frame
-    void Update () {
+
+    bool IsInPipe(GameObject pipe)
+    {
+        return bird.transform.position.x > pipe.transform.position.x - 0.5f
+                   && bird.transform.position.x < pipe.transform.position.x + 0.5f;
+    }
+
+	// Update is called once per frame
+	void Update () {
+        time += Time.deltaTime;
         if (gameOn)
         {
-            foreach (GameObject pipe in pipes)
+            for (int count = 0; count < 2; count++)
             {
-                pipe.transform.Translate(-speed, 0, 0);
-                if (pipe.transform.position.x < -10)
-                {
-                    pipe.transform.position = new Vector3(10, 0.8f, -1);
-                    if (bird.transform.position.x >= pipe.transform.position.x 
-                        && bird.transform.position.x <= pipe.transform.position.x)
-                    {
-                        speed += 0.01f;
-                        score += 5;
-                    }
-                }
-                if ((bird.transform.position.y < -0.8 || bird.transform.position.y > 2)
-                    && bird.transform.position.x > pipe.transform.position.x - 0.5 
-                    && bird.transform.position.x < pipe.transform.position.x + 0.5)
-                {
-                    GameOver();
-                }
+                pipes[count].transform.Translate(-speed, 0, 0);
+                if (pipes[count].transform.position.x < -10)
+                    pipes[count].transform.position = new Vector3(10, 0.8f, -1);
 
+                if (!birdPassed[count] && bird.transform.position.x >= pipes[count].transform.position.x)
+                {
+                    speed += 0.01f;
+                    score += 5;
+                    birdPassed[count] = true;
+                }
+                if (bird.transform.position.x <= pipes[count].transform.position.x)
+                    birdPassed[count] = false;
+
+                if ((bird.transform.position.y < -0.8f || bird.transform.position.y > 2) 
+                    && IsInPipe(pipes[count]))
+                    GameOver();
             }
         }
     }
