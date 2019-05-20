@@ -341,6 +341,7 @@ GameObject:
   m_Component:
   - component: {fileID: 638296429}
   - component: {fileID: 638296428}
+  - component: {fileID: 638296430}
   m_Layer: 0
   m_Name: ball
   m_TagString: Untagged
@@ -399,12 +400,28 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 638296427}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -3.5, z: 0}
+  m_LocalPosition: {x: 0, y: -3.5, z: -1}
   m_LocalScale: {x: -0.3, y: -0.3, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &638296430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 638296427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e49ad9a0da1eb46928bfae12eef8f6ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  club: {fileID: 1923158690}
+  hole: {fileID: 1841846817}
+  acceleration: 0
+  deceleration: 0.01
+  forceIncrese: 0.01
 --- !u!1 &647139827
 GameObject:
   m_ObjectHideFlags: 0
@@ -1399,7 +1416,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1841846817}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.020031393, y: 3.525516, z: 0}
+  m_LocalPosition: {x: -0.020031393, y: 3.525516, z: -1}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1472,7 +1489,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1923158690}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.26, y: -3.53, z: 0}
+  m_LocalPosition: {x: -0.26, y: -3.53, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

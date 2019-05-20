@@ -10,6 +10,7 @@ public class Ball : MonoBehaviour {
     private Vector3 startingPoint;
     public float deceleration = 0.01f;
     public float forceIncrese = 0.01f;
+    public float maxForce = 1.2f;
     private bool touchedWall = false;
     private bool pressedSpace = false;
     private int score = -15;
@@ -52,7 +53,7 @@ public class Ball : MonoBehaviour {
                 }
                 else if (!Input.GetKey("space"))
                 {
-                    acceleration = Mathf.Clamp(force, 0, 0.4f);
+                    acceleration = Mathf.Clamp(force, 0, maxForce);
                     force = 0;
                 }
                 if (pressedSpace && force <= 0 && acceleration <= 0)
@@ -67,6 +68,8 @@ public class Ball : MonoBehaviour {
                 // Defining ball movement
                 if (gameObject.transform.position.y >= 4.6f)
                     touchedWall = true;
+                if (gameObject.transform.position.y <= -4.6f)
+                    touchedWall = false;
                 if (touchedWall || startingPoint.y > hole.gameObject.transform.position.y)
                     gameObject.transform.Translate(0, -acceleration, 0);
                 else
