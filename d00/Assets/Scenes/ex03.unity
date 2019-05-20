@@ -228,12 +228,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a8bab52558fd42f98d944aa25fcc59e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.1
-  passedBird: 0
   bird: {fileID: 519577623}
   pipes:
   - {fileID: 318948824}
   - {fileID: 1309588037}
+  speed: 0.1
+  score: 0
 --- !u!1 &93772304
 GameObject:
   m_ObjectHideFlags: 0
@@ -439,8 +439,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pipe1: {fileID: 318948824}
   pipe2: {fileID: 1309588037}
-  flapForce: 3
+  flapForce: 0.05
   deceleration: 0.1
+  time: 0
 --- !u!212 &519577625
 SpriteRenderer:
   m_ObjectHideFlags: 0
