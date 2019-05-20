@@ -43,9 +43,12 @@ public class Pipe : MonoBehaviour
                 if (bird.transform.position.x <= pipes[count].transform.position.x)
                     birdPassed[count] = false;
 
-                if ((bird.transform.position.y < -0.8f || bird.transform.position.y > 2) 
-                    && IsInPipe(pipes[count]))
+                if (((bird.transform.position.y < -0.8f || bird.transform.position.y > 2)
+                     && IsInPipe(pipes[count])) || (bird.transform.position.y < -3))
+                {
                     GameOver();
+                    break;
+                }
             }
         }
     }
